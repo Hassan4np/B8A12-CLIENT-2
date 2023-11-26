@@ -3,12 +3,14 @@ import useAxousPublic from "../Hools/useAxousPublic";
 import { useParams } from "react-router-dom";
 import useAxousSecret from "../Hools/useAxousSecret";
 import Swal from "sweetalert2";
+import useAuth from "../Hools/useAuth";
 
 
 const CardDetails = () => {
     const axospublic = useAxousPublic();
     const axousseret = useAxousSecret();
-    const { id } = useParams()
+    const {user} = useAuth();
+    const { id } = useParams();
     const { data } = useQuery({
         queryKey: ['advertisement', id],
         queryFn: async () => {
@@ -27,7 +29,8 @@ const CardDetails = () => {
             title,
              dec,
              agentName:data.agent_name,
-             date: new Date()
+             date: new Date(),
+             
         }
         console.log(review)
         axousseret.post('/review',review)
@@ -55,7 +58,8 @@ const CardDetails = () => {
             location:data?.location_name,
             agentImage:data?.agent_img,
             status:data?.status,
-            price:data?.price
+            price:data?.price,
+            email:user?.email
         }
         axousseret.post('/cards',Cardsinfo)
         .then(res=>{

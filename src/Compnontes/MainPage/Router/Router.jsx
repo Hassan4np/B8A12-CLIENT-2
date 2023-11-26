@@ -13,6 +13,7 @@ import DaseBoard from "../Daseboard/DaseBoard";
 import UserHome from "../Daseboard/UserHome/UserHome";
 import AdminHome from "../Daseboard/AdminHome/AdminHome";
 import AgentHome from "../Daseboard/AgentHome/AgentHome";
+import UserWishlist from "../Daseboard/UserHome/UserWishlist";
 
 
 const router = createBrowserRouter([
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
             {
                 path:'userhome',
                 element:<PrivateRout><UserHome></UserHome></PrivateRout>
+            },
+            {
+                path:'wishlist',
+                element:<PrivateRout><UserWishlist></UserWishlist></PrivateRout>
             },
             {
                 path:'agenthome',
