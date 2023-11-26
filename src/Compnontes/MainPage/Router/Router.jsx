@@ -9,6 +9,10 @@ import LoginPage from "../RegistonPage/LoginPage";
 import CardDetails from "../ALLPropatys/CardDetails";
 import Allpropaty from "../ALLPropatys/Allpropaty";
 import PrivateRout from "../PrivateRout/PrivateRout";
+import DaseBoard from "../Daseboard/DaseBoard";
+import UserHome from "../Daseboard/UserHome/UserHome";
+import AdminHome from "../Daseboard/AdminHome/AdminHome";
+import AgentHome from "../Daseboard/AgentHome/AgentHome";
 
 
 const router = createBrowserRouter([
@@ -42,6 +46,24 @@ const router = createBrowserRouter([
 
         ]
     },
-
+    {
+        path:"/daseboard",
+        element:<DaseBoard></DaseBoard>,
+        children:[
+            {
+                path:'userhome',
+                element:<PrivateRout><UserHome></UserHome></PrivateRout>
+            },
+            {
+                path:'agenthome',
+                element:<PrivateRout><AgentHome></AgentHome></PrivateRout>
+            },
+            {
+                path:'adminhome',
+                element:<PrivateRout><AdminHome></AdminHome></PrivateRout>
+            },
+           
+        ]
+    }
 ]);
 export { router }  
