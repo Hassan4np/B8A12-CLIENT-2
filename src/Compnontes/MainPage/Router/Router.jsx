@@ -15,66 +15,71 @@ import AdminHome from "../Daseboard/AdminHome/AdminHome";
 import AgentHome from "../Daseboard/AgentHome/AgentHome";
 import UserWishlist from "../Daseboard/UserHome/UserWishlist";
 import CardsMakePage from "../Daseboard/UserHome/CardsMakePage";
+import Userbought from "../Daseboard/UserHome/Userbought";
 
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainPage></MainPage>,
-        errorElement:<Error></Error>,
+        errorElement: <Error></Error>,
         children: [
-            
+
             {
-            path:"/",
-            element:<Home></Home>,
-        },
-        {
-            path:'/signup',
-            element:<SignupPage></SignupPage>,
-        },
-        {
-            path:"/login",
-            element:<LoginPage></LoginPage>,
-        },
-        {
-            path:'/carddetails/:id',
-            element:<PrivateRout><CardDetails></CardDetails></PrivateRout>,
-        },
-        {
-            path:"/proparis",
-            element:<Allpropaty></Allpropaty>,
-        }
+                path: "/",
+                element: <Home></Home>,
+            },
+            {
+                path: '/signup',
+                element: <SignupPage></SignupPage>,
+            },
+            {
+                path: "/login",
+                element: <LoginPage></LoginPage>,
+            },
+            {
+                path: '/carddetails/:id',
+                element: <PrivateRout><CardDetails></CardDetails></PrivateRout>,
+            },
+            {
+                path: "/proparis",
+                element: <Allpropaty></Allpropaty>,
+            }
 
 
         ]
     },
     {
-        path:"/daseboard",
-        element:<PrivateRout><DaseBoard></DaseBoard></PrivateRout>,
-        children:[
+        path: "/daseboard",
+        element: <PrivateRout><DaseBoard></DaseBoard></PrivateRout>,
+        children: [
             {
-                path:'userhome',
-                element:<PrivateRout><UserHome></UserHome></PrivateRout>
+                path: 'userhome',
+                element: <PrivateRout><UserHome></UserHome></PrivateRout>
             },
             {
-                path:'wishlist',
-                element:<PrivateRout><UserWishlist></UserWishlist></PrivateRout>
+                path: 'wishlist',
+                element: <PrivateRout><UserWishlist></UserWishlist></PrivateRout>
             },
             {
-                path:'cardsmake/:id',
-                element:<CardsMakePage></CardsMakePage>,
-                loader:({params})=>fetch(`http://localhost:5000/cards/${params.id}`)
-                
+                path: 'cardsmake/:id',
+                element: <CardsMakePage></CardsMakePage>,
+                loader: ({ params }) => fetch(`http://localhost:5000/cards/${params.id}`)
+
             },
             {
-                path:'agenthome',
-                element:<PrivateRout><AgentHome></AgentHome></PrivateRout>
+                path: 'bought',
+                element:<Userbought></Userbought>
             },
             {
-                path:'adminhome',
-                element:<PrivateRout><AdminHome></AdminHome></PrivateRout>
+                path: 'agenthome',
+                element: <PrivateRout><AgentHome></AgentHome></PrivateRout>
             },
-           
+            {
+                path: 'adminhome',
+                element: <PrivateRout><AdminHome></AdminHome></PrivateRout>
+            },
+
         ]
     }
 ]);

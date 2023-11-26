@@ -63,7 +63,7 @@ const DaseBoard = () => {
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/wishlist"><FaCalendar></FaCalendar>Wishlist</Link></li>
                         </ul>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/cart"><FaAd></FaAd>Bougth item</Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/bought"><FaAd></FaAd>Bougth item</Link></li>
                         </ul>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/history"><FaList></FaList>My reviews</Link></li>
