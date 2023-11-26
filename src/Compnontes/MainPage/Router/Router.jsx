@@ -14,6 +14,7 @@ import UserHome from "../Daseboard/UserHome/UserHome";
 import AdminHome from "../Daseboard/AdminHome/AdminHome";
 import AgentHome from "../Daseboard/AgentHome/AgentHome";
 import UserWishlist from "../Daseboard/UserHome/UserWishlist";
+import CardsMakePage from "../Daseboard/UserHome/CardsMakePage";
 
 
 const router = createBrowserRouter([
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
     },
     {
         path:"/daseboard",
-        element:<DaseBoard></DaseBoard>,
+        element:<PrivateRout><DaseBoard></DaseBoard></PrivateRout>,
         children:[
             {
                 path:'userhome',
@@ -58,6 +59,12 @@ const router = createBrowserRouter([
             {
                 path:'wishlist',
                 element:<PrivateRout><UserWishlist></UserWishlist></PrivateRout>
+            },
+            {
+                path:'cardsmake/:id',
+                element:<CardsMakePage></CardsMakePage>,
+                loader:({params})=>fetch(`http://localhost:5000/cards/${params.id}`)
+                
             },
             {
                 path:'agenthome',

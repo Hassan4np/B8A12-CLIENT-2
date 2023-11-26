@@ -3,12 +3,13 @@ import Heading from "../../GoolebalSecton/Heading";
 import useAxousSecret from "../../Hools/useAxousSecret";
 import useAuth from "../../Hools/useAuth";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const UserWishlist = () => {
     const axoussec = useAxousSecret();
     const { user } = useAuth();
-    const { data,refetch } = useQuery({
+    const { data, refetch } = useQuery({
         queryKey: ['cards', user.email],
         queryFn: async () => {
             const res = await axoussec.get(`/cards?email=${user.email}`);
@@ -19,22 +20,22 @@ const UserWishlist = () => {
     const hendledelete = (id) => {
         console.log(id)
         axoussec.delete(`/cards/${id}`)
-        .then(res=>{
-            console.log(res.data)
-            if(res.data.deletedCount>0){
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'Item delete Successfully ',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-            refetch()
-        })
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(res => {
+                console.log(res.data)
+                if (res.data.deletedCount > 0) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Item delete Successfully ',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+                refetch()
+            })
+            .catch(error => {
+                console.log(error)
+            })
 
     }
     return (
@@ -80,8 +81,8 @@ const UserWishlist = () => {
                                     </td>
                                     <td>{it?.status}</td>
                                     <td>{it?.price}tk</td>
-                                    <td><button className="btn btn-sm bg-green-200">Offer</button></td>
-                                    <button onClick={() => hendledelete(it?._id)} className="btn btn-sm bg-green-200">Remove</button>
+                                    <Link to={`/daseboard/cardsmake/${it?._id}`}><td><button className="btn btn-sm bg-green-200">Offer</button></td></Link>
+                                    <th className=""><button onClick={() => hendledelete(it?._id)} className="btn btn-sm  bg-green-200">Remove</button></th>
 
                                 </tr>)
                             }
