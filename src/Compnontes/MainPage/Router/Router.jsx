@@ -20,6 +20,7 @@ import Payment from "../Daseboard/UserHome/Payment";
 import Review from "../Daseboard/UserHome/Review";
 import Additem from "../Daseboard/AgentHome/Additem";
 import Myitem from "../Daseboard/AgentHome/Myitem";
+import Updateitem from "../Daseboard/AgentHome/Updateitem";
 
 
 const router = createBrowserRouter([
@@ -100,8 +101,12 @@ const router = createBrowserRouter([
             {
                 path:'myitem',
                 element:<Myitem></Myitem>
+            },
+            {
+                path:'update/:id',
+                element:<Updateitem></Updateitem>,
+                loader:({params})=>fetch(`http://localhost:5000/advertisement/${params.id}`)
             }
-            ,
 
         ]
     }
