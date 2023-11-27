@@ -21,6 +21,7 @@ import Review from "../Daseboard/UserHome/Review";
 import Additem from "../Daseboard/AgentHome/Additem";
 import Myitem from "../Daseboard/AgentHome/Myitem";
 import Updateitem from "../Daseboard/AgentHome/Updateitem";
+import Manageitem from "../Daseboard/AdminHome/Manageitem";
 
 
 const router = createBrowserRouter([
@@ -90,10 +91,7 @@ const router = createBrowserRouter([
                 path: 'payment',
                 element: <Payment></Payment>
             },
-            {
-                path: 'adminhome',
-                element: <PrivateRout><AdminHome></AdminHome></PrivateRout>
-            },
+           
             {
                 path:'additem',
                 element:<Additem></Additem>
@@ -106,6 +104,15 @@ const router = createBrowserRouter([
                 path:'update/:id',
                 element:<Updateitem></Updateitem>,
                 loader:({params})=>fetch(`http://localhost:5000/advertisement/${params.id}`)
+            },
+            //Admin section------------>
+            {
+                path: 'adminhome',
+                element: <PrivateRout><AdminHome></AdminHome></PrivateRout>
+            },
+            {
+                path:'itemmange',
+                element:<Manageitem></Manageitem>
             }
 
         ]

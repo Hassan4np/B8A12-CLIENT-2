@@ -14,14 +14,14 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const [error, seterror] = useState()
-    const [cards,refetch] = useBought();
+    const [cards, refetch] = useBought();
 
     const axioussecret = useAxousSecret()
     const { user } = useAuth();
     const [teansactitonid, setteansactioid] = useState('');
     const navigate = useNavigate()
 
-
+    console.log(cards)
     const totalprice = cards.reduce((total, item) => total + parseInt(item.price), 0)
     console.log(totalprice)
     useEffect(() => {
@@ -78,13 +78,13 @@ const CheckoutForm = () => {
                     email: user?.email,
                     price: totalprice,
                     transactionId: paymentIntent.id,
-                    date: cards?.map(item=>item.date),
+                    date: cards?.map(item => item.date),
                     cartIds: cards?.map(item => item._id),
                 }
                 const res = await axioussecret.post('/payments', payment);
                 console.log("payment save", res.data)
                 refetch()
-                if(res.data.paymentResult.insertedId){
+                if (res.data.paymentResult.insertedId) {
                     Swal.fire({
                         position: 'top-center',
                         icon: 'success',
@@ -94,7 +94,7 @@ const CheckoutForm = () => {
                     })
                     navigate('/daseboard/bought')
                 }
-              
+
             }
         }
     }

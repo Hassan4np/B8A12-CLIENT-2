@@ -4,12 +4,12 @@ import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare, FaShopify, FaTelegr
 
 
 const DaseBoard = () => {
-    //   const isAdmin = true;
-    const isAgent = true
+      const isAdmin = true;
+    // const isAgent = true
     // const isUser = true
 
-    const isAdmin = false;
-    // const isAgent = false
+    // const isAdmin = false;
+    const isAgent = false
     const isUser = false
     return (
         <div className="flex">
@@ -40,13 +40,10 @@ const DaseBoard = () => {
                 {
                     isAdmin && <>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>AdminHome</Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><FaCalendar></FaCalendar>Profile</Link></li>
                         </ul>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/additem"><FaCalendar></FaCalendar>Profile</Link></li>
-                        </ul>
-                        <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/manage"><FaCalendar></FaCalendar>Manage Item</Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/itemmange"><FaCalendar></FaCalendar>Manage Item</Link></li>
                         </ul>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/cart"><FaAd></FaAd>Manage user</Link></li>
