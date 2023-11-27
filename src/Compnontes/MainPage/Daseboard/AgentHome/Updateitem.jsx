@@ -4,6 +4,7 @@ import useAuth from "../../Hools/useAuth";
 import useAxousPublic from "../../Hools/useAxousPublic";
 import useAxousSecret from "../../Hools/useAxousSecret";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 
 
@@ -44,17 +45,17 @@ const Updateitem = () => {
             console.log(menuitem)
             const menures = await axioussecret.patch(`/advertisement/${_id}`, menuitem);
             console.log(menures.data)
-            // if (menures.data.insertedId) {
-            //     reset()
-            //     //todo
-            //     Swal.fire({
-            //         position: 'top-center',
-            //         icon: 'success',
-            //         title: 'Item add Successfully ',
-            //         showConfirmButton: false,
-            //         timer: 1500
-            //     })
-            // }
+            if (menures.data.modifiedCount>0) {
+                reset()
+                //todo
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Item update Successfully ',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+            }
 
         }
     }
