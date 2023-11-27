@@ -52,8 +52,8 @@ const Manageitem = () => {
                         </thead>
                         <tbody>
                            {
-                            menus?.map(item=> <tr key={item._id} className="bg-base-200">
-                            <th>1</th>
+                            menus?.map((item,idx)=> <tr key={item._id} className="bg-base-200">
+                            <th>{idx+1}</th>
                             <td>{item?.title}</td>
                             <td>{item?.location_name}</td>
                             <td>{item?.agent_name}</td>

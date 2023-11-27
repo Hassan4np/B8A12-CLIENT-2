@@ -22,6 +22,7 @@ import Additem from "../Daseboard/AgentHome/Additem";
 import Myitem from "../Daseboard/AgentHome/Myitem";
 import Updateitem from "../Daseboard/AgentHome/Updateitem";
 import Manageitem from "../Daseboard/AdminHome/Manageitem";
+import Manageusers from "../Daseboard/AdminHome/Manageusers";
 
 
 const router = createBrowserRouter([
@@ -113,7 +114,11 @@ const router = createBrowserRouter([
             {
                 path:'itemmange',
                 element:<Manageitem></Manageitem>
-            }
+            },
+            {
+                path:'manageusers',
+                element:<Manageusers></Manageusers>
+            },
 
         ]
     }

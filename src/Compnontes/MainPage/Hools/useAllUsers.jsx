@@ -5,7 +5,7 @@ import useAxousSecret from "./useAxousSecret";
 
 const useAllUsers = () => {
     const axousseret = useAxousSecret();
-    const {data,isLoading} = useQuery({
+    const {data:users,isLoading,refetch} = useQuery({
         queryKey:['users',],
         queryFn: async ()=>{
             const res = await  axousseret.get('/users');
@@ -15,7 +15,7 @@ const useAllUsers = () => {
         }
     })
    
-    return [data,isLoading]
+    return [users,isLoading,refetch]
 };
 
 export default useAllUsers;
