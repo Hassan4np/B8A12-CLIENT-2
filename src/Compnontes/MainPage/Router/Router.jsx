@@ -16,6 +16,8 @@ import AgentHome from "../Daseboard/AgentHome/AgentHome";
 import UserWishlist from "../Daseboard/UserHome/UserWishlist";
 import CardsMakePage from "../Daseboard/UserHome/CardsMakePage";
 import Userbought from "../Daseboard/UserHome/Userbought";
+import Payment from "../Daseboard/UserHome/Payment";
+import Review from "../Daseboard/UserHome/Review";
 
 
 const router = createBrowserRouter([
@@ -69,11 +71,19 @@ const router = createBrowserRouter([
             },
             {
                 path: 'bought',
-                element:<Userbought></Userbought>
+                element: <Userbought></Userbought>
+            },
+            {
+                path: 'review',
+                element: <Review></Review>
             },
             {
                 path: 'agenthome',
                 element: <PrivateRout><AgentHome></AgentHome></PrivateRout>
+            },
+            {
+                path: 'payment',
+                element: <Payment></Payment>
             },
             {
                 path: 'adminhome',

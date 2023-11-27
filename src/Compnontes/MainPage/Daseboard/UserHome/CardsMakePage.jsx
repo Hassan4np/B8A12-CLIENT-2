@@ -89,7 +89,7 @@ const CardsMakePage = () => {
                             <label className="label">
                                 <span className="label-text">price</span>
                             </label>
-                            <input type="text" {...register("price", { required: true })} className="input input-bordered w-full" />
+                            <input type="number" {...register("price", { required: true })} className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">

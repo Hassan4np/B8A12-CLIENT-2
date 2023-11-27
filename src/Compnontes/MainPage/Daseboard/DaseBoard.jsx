@@ -4,33 +4,34 @@ import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare, FaShopify, FaTelegr
 
 
 const DaseBoard = () => {
-//   const isAdmin = true;
-//   const isAgent = true
-  const isAdmin = false;
-  const isAgent = false
+    //   const isAdmin = true;
+    //   const isAgent = true
+    
+    const isAdmin = false;
+    const isAgent = false
     return (
         <div className="flex">
             <div className=" min-h-[800px] bg-orange-400 w-1/5">
 
                 {/* Agentsection------------> */}
                 {
-                    isAgent&&  <>
-                    <ul className="menu p-2">
-                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>Agent Profile</Link></li>
-                    </ul>
-                    <ul className="menu p-2">
-                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/additem"><FaCalendar></FaCalendar>Add Item</Link></li>
-                    </ul>
-                    <ul className="menu p-2">
-                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/manage"><FaCalendar></FaCalendar>All Item</Link></li>
-                    </ul>
-                    <ul className="menu p-2">
-                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/cart"><FaAd></FaAd>Sold item </Link></li>
-                    </ul>
-                    <ul className="menu p-2">
-                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/users"><FaList></FaList>Requested item</Link></li>
-                    </ul>
-                </> 
+                    isAgent && <>
+                        <ul className="menu p-2">
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>Agent Profile</Link></li>
+                        </ul>
+                        <ul className="menu p-2">
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/additem"><FaCalendar></FaCalendar>Add Item</Link></li>
+                        </ul>
+                        <ul className="menu p-2">
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/manage"><FaCalendar></FaCalendar>All Item</Link></li>
+                        </ul>
+                        <ul className="menu p-2">
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/cart"><FaAd></FaAd>Sold item </Link></li>
+                        </ul>
+                        <ul className="menu p-2">
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/users"><FaList></FaList>Requested item</Link></li>
+                        </ul>
+                    </>
                 }
 
                 {/* admin section ------> */}
@@ -54,21 +55,21 @@ const DaseBoard = () => {
                     </> :
 
 
-                    // user secton---------------->
-                     <>
-                        <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/userhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>MyProfile</Link></li>
-                        </ul>
-                        <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/wishlist"><FaCalendar></FaCalendar>Wishlist</Link></li>
-                        </ul>
-                        <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/bought"><FaAd></FaAd>Bougth item</Link></li>
-                        </ul>
-                        <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/history"><FaList></FaList>My reviews</Link></li>
-                        </ul>
-                    </>
+                        // user secton---------------->
+                        <>
+                            <ul className="menu p-2">
+                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/userhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>MyProfile</Link></li>
+                            </ul>
+                            <ul className="menu p-2">
+                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/wishlist"><FaCalendar></FaCalendar>Wishlist</Link></li>
+                            </ul>
+                            <ul className="menu p-2">
+                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/bought"><FaAd></FaAd>Bougth item</Link></li>
+                            </ul>
+                            <ul className="menu p-2">
+                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/review"><FaList></FaList>My reviews</Link></li>
+                            </ul>
+                        </>
                 }
                 <div className="divider divider-horizontal border-b-4 w-2/4"></div>
                 <ul className="menu p-2">
@@ -76,14 +77,9 @@ const DaseBoard = () => {
                 </ul>
 
                 <ul className="menu p-2">
-                    <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/menu"><FaRegMinusSquare></FaRegMinusSquare>Menu</Link></li>
+                    <button ><li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/"><FaRegMinusSquare></FaRegMinusSquare>Logout</Link></li></button>
                 </ul>
-                <ul className="menu p-2">
-                    <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/shop"><FaShopify></FaShopify> Shop</Link></li>
-                </ul>
-                <ul className="menu p-2">
-                    <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/content"><FaTelegram></FaTelegram> Contact</Link></li>
-                </ul>
+
 
 
             </div>

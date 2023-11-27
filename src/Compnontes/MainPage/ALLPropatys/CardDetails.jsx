@@ -30,6 +30,7 @@ const CardDetails = () => {
              dec,
              agentName:data.agent_name,
              date: new Date(),
+             email:user?.email,
              
         }
         console.log(review)

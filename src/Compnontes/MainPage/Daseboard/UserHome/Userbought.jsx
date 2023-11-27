@@ -1,10 +1,11 @@
 import { useQuery } from "react-query";
 import Heading from "../../GoolebalSecton/Heading";
 import useAxousSecret from "../../Hools/useAxousSecret";
+import { Link } from "react-router-dom";
 
 const Userbought = () => {
     const axoussec = useAxousSecret();
-    const { data, refetch } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['boughts'],
         queryFn: async () => {
             const res = await axoussec.get(`/boughts`);
@@ -12,11 +13,20 @@ const Userbought = () => {
             return res.data
         }
     })
+    if(isLoading){
+        return <div className="text-center py-10"><span className="loading loading-bars loading-lg"></span></div>
+    }
+    const paybutton = data?.map(item => item.status === 'accepted');
     return (
         <div>
             <Heading title="user Bought"></Heading>
             <div className="text-center">
-                <button className="btn btn-sm bg-green-400 hover:bg-green-300">Pay</button>
+                {
+                paybutton ? <Link to='/daseboard/payment'><button className="btn btn-sm bg-green-400 hover:bg-green-300">Pay</button></Link>:
+                <button  disabled className="btn btn-sm bg-green-400 hover:bg-green-100">Pay</button>
+                }
+
+                
             </div>
             <div>
                 <div className="overflow-x-auto">
