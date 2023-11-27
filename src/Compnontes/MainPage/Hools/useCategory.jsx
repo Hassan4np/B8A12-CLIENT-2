@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const useCategory = ({text}) => {
     const [menus,refetch,isLoading] = useAllPropotismenu();
-    const axospublic = useAxousPublic();
+    
     console.log(text)
     const [data,setdata] = useState([]);
     useEffect(()=>{

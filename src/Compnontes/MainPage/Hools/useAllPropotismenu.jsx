@@ -9,8 +9,7 @@ const useAllPropotismenu = () => {
         queryFn: async ()=>{
             const res = await  axospublic.get('/advertisement');
             console.log(res.data);
-           
-           
+            return res.data          
         }
     })
    
