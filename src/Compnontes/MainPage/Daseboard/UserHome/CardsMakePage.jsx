@@ -8,7 +8,7 @@ import useAuth from "../../Hools/useAuth";
 
 const CardsMakePage = () => {
     const data = useLoaderData();
-    const { title, price, location, agentName,image} = data;
+    const { title, price, location, agentName, image } = data;
     const { register, handleSubmit, reset } = useForm();
     const axioussecret = useAxousSecret();
     const { user } = useAuth();
@@ -19,10 +19,10 @@ const CardsMakePage = () => {
     const preprcee = parseInt(price?.split('-')[1]);
     const onSubmit = async (data) => {
         // console.log(data)
-       
+
         const recprice = data.price;
         if (preprce > recprice || preprcee < recprice) {
-         Swal.fire({
+            Swal.fire({
                 icon: "error",
                 title: "Oops...",
                 text: "Sorry your price range is not valided",
@@ -38,13 +38,13 @@ const CardsMakePage = () => {
             buyerEmail: data.buyerEmail,
             AgentName: data.AgentName,
             date: data.date,
-            image:image,
+            image: image,
             status: 'pending'
         }
         console.log(menuitem)
         const menures = await axioussecret.post('/boughts', menuitem);
         console.log(menures.data)
-        if(menures.data.insertedId){
+        if (menures.data.insertedId) {
             reset()
             //todo
             Swal.fire({
@@ -61,7 +61,6 @@ const CardsMakePage = () => {
             <Heading title="user form"></Heading>
             <div className="px-10">
                 <form onSubmit={handleSubmit(onSubmit)}>
-
                     <div className="form-control w-full">
                         <label className="label">
                             <span className="label-text">Title</span>

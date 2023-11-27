@@ -18,6 +18,8 @@ import CardsMakePage from "../Daseboard/UserHome/CardsMakePage";
 import Userbought from "../Daseboard/UserHome/Userbought";
 import Payment from "../Daseboard/UserHome/Payment";
 import Review from "../Daseboard/UserHome/Review";
+import Additem from "../Daseboard/AgentHome/Additem";
+import Myitem from "../Daseboard/AgentHome/Myitem";
 
 
 const router = createBrowserRouter([
@@ -55,6 +57,7 @@ const router = createBrowserRouter([
         path: "/daseboard",
         element: <PrivateRout><DaseBoard></DaseBoard></PrivateRout>,
         children: [
+            //User section--------------->
             {
                 path: 'userhome',
                 element: <PrivateRout><UserHome></UserHome></PrivateRout>
@@ -77,6 +80,7 @@ const router = createBrowserRouter([
                 path: 'review',
                 element: <Review></Review>
             },
+            //Agent section------------>
             {
                 path: 'agenthome',
                 element: <PrivateRout><AgentHome></AgentHome></PrivateRout>
@@ -89,6 +93,15 @@ const router = createBrowserRouter([
                 path: 'adminhome',
                 element: <PrivateRout><AdminHome></AdminHome></PrivateRout>
             },
+            {
+                path:'additem',
+                element:<Additem></Additem>
+            },
+            {
+                path:'myitem',
+                element:<Myitem></Myitem>
+            }
+            ,
 
         ]
     }

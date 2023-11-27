@@ -99,6 +99,10 @@ const CardDetails = () => {
 
                         Agant: {data?.agent_name}
                     </h4>
+                    <h6 className="block mb-2 font-sans text-green-600 text-sm antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+
+                        Price: {data?.price} tk
+                    </h6>
                     <p className="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-500">
                         {data?.dec}
                     </p>

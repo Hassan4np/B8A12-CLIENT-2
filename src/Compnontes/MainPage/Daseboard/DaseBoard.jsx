@@ -5,10 +5,12 @@ import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare, FaShopify, FaTelegr
 
 const DaseBoard = () => {
     //   const isAdmin = true;
-    //   const isAgent = true
-    
+    const isAgent = true
+    // const isUser = true
+
     const isAdmin = false;
-    const isAgent = false
+    // const isAgent = false
+    const isUser = false
     return (
         <div className="flex">
             <div className=" min-h-[800px] bg-orange-400 w-1/5">
@@ -17,13 +19,13 @@ const DaseBoard = () => {
                 {
                     isAgent && <>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>Agent Profile</Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/agenthome"><AiOutlineShoppingCart></AiOutlineShoppingCart>Agent Profile</Link></li>
                         </ul>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/additem"><FaCalendar></FaCalendar>Add Item</Link></li>
                         </ul>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/manage"><FaCalendar></FaCalendar>All Item</Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/myitem"><FaCalendar></FaCalendar>All Item</Link></li>
                         </ul>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/cart"><FaAd></FaAd>Sold item </Link></li>
@@ -36,7 +38,7 @@ const DaseBoard = () => {
 
                 {/* admin section ------> */}
                 {
-                    isAdmin ? <>
+                    isAdmin && <>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>AdminHome</Link></li>
                         </ul>
@@ -52,25 +54,27 @@ const DaseBoard = () => {
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/users"><FaList></FaList>Manage review</Link></li>
                         </ul>
-                    </> :
+                    </>} :
+                {
+                    isUser &&  <>
+                    <ul className="menu p-2">
+                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/userhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>MyProfile</Link></li>
+                    </ul>
+                    <ul className="menu p-2">
+                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/wishlist"><FaCalendar></FaCalendar>Wishlist</Link></li>
+                    </ul>
+                    <ul className="menu p-2">
+                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/bought"><FaAd></FaAd>Bougth item</Link></li>
+                    </ul>
+                    <ul className="menu p-2">
+                        <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/review"><FaList></FaList>My reviews</Link></li>
+                    </ul>
+                </>
+}
 
 
-                        // user secton---------------->
-                        <>
-                            <ul className="menu p-2">
-                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/userhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>MyProfile</Link></li>
-                            </ul>
-                            <ul className="menu p-2">
-                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/wishlist"><FaCalendar></FaCalendar>Wishlist</Link></li>
-                            </ul>
-                            <ul className="menu p-2">
-                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/bought"><FaAd></FaAd>Bougth item</Link></li>
-                            </ul>
-                            <ul className="menu p-2">
-                                <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/review"><FaList></FaList>My reviews</Link></li>
-                            </ul>
-                        </>
-                }
+
+
                 <div className="divider divider-horizontal border-b-4 w-2/4"></div>
                 <ul className="menu p-2">
                     <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/"><FaHome></FaHome>Home</Link></li>
