@@ -8,6 +8,7 @@ import useAxousPublic from "../Hools/useAxousPublic";
 import Cards from "./Cards";
 import CollactionCards from "./CollactionCards";
 import Aboutus from "./Aboutus";
+import Feedback from "./Feedback";
 // import useAllPropotismenu from "../Hools/useAllPropotismenu";
 
 
@@ -53,6 +54,10 @@ const Home = () => {
                 <div>
                     <Heading title="our collaction" subtitle="amet consectetur adipisicing elit. Obcaecati, quas!" ></Heading>
                     <CollactionCards></CollactionCards>
+                </div>
+                <div>
+                    <Heading title="REview"></Heading>
+                    <Feedback></Feedback>
                 </div>
 
             </div>
