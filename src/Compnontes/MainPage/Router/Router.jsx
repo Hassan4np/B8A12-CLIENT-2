@@ -23,6 +23,7 @@ import Myitem from "../Daseboard/AgentHome/Myitem";
 import Updateitem from "../Daseboard/AgentHome/Updateitem";
 import Manageitem from "../Daseboard/AdminHome/Manageitem";
 import Manageusers from "../Daseboard/AdminHome/Manageusers";
+import Allreview from "../Daseboard/AdminHome/Allreview";
 
 
 const router = createBrowserRouter([
@@ -119,6 +120,10 @@ const router = createBrowserRouter([
                 path:'manageusers',
                 element:<Manageusers></Manageusers>
             },
+            {
+                path:'allreview',
+                element:<Allreview></Allreview>
+            }
 
         ]
     }

@@ -4,11 +4,13 @@ import { useParams } from "react-router-dom";
 import useAxousSecret from "../Hools/useAxousSecret";
 import Swal from "sweetalert2";
 import useAuth from "../Hools/useAuth";
+import { useState } from "react";
 
 
 const CardDetails = () => {
     const axospublic = useAxousPublic();
     const axousseret = useAxousSecret();
+    const [close,setclose]=useState(true)
     const {user} = useAuth();
     const { id } = useParams();
     const { data } = useQuery({
@@ -30,7 +32,9 @@ const CardDetails = () => {
              dec,
              agentName:data.agent_name,
              date: new Date(),
-             email:user?.email,
+             revieweremail:user?.email,
+             reviewername:user?.displayName,
+             reviewerimg:user?.photoURL,
              
         }
         console.log(review)
@@ -38,6 +42,7 @@ const CardDetails = () => {
     .then(res=>{
         console.log(res.data)
         if(res.data.acknowledged){
+            setclose(false)
             Swal.fire({
                 position: 'top-center',
                 icon: 'success',
@@ -80,7 +85,7 @@ const CardDetails = () => {
         })
         
     }
-
+console.log(close)
     return (
         <div className="mt-10 ">
             <div className="relative md:flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -149,7 +154,7 @@ const CardDetails = () => {
                     </form>
                     <div className="modal-action">
                         <form method="dialog">
-                            <button className="btn">Close</button>
+                            <button onClick={()=>setclose(false)} className="btn">Close</button>
                         </form>
                     </div>
                 </div>

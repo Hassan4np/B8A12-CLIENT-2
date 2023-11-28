@@ -1,16 +1,16 @@
 import { Link, Outlet } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare, FaShopify, FaTelegram } from 'react-icons/fa';
+import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare,  } from 'react-icons/fa';
 
 
 const DaseBoard = () => {
-      const isAdmin = true;
+    //   const isAdmin = true;
     // const isAgent = true
-    // const isUser = true
+    const isUser = true
 
-    // const isAdmin = false;
+    const isAdmin = false;
     const isAgent = false
-    const isUser = false
+    // const isUser = false
     return (
         <div className="flex">
             <div className=" min-h-[800px] bg-orange-400 w-1/5">
@@ -49,7 +49,7 @@ const DaseBoard = () => {
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/manageusers"><FaAd></FaAd>Manage user</Link></li>
                         </ul>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/users"><FaList></FaList>Manage review</Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/allreview"><FaList></FaList>Manage review</Link></li>
                         </ul>
                     </>} :
                 {
