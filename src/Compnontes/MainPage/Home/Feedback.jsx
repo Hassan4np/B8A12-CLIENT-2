@@ -30,11 +30,11 @@ const Feedback = () => {
                 className="mySwiper"
             >
                 {
-                    review?.map(item => <SwiperSlide className="px-16" key={item._id}>
+                    review?.slice(0,3)?.map(item => <SwiperSlide className="px-16" key={item._id}>
                         <div className="text-center">
                             <div className="avatar">
                                 <div className="w-10 rounded-full">
-                                    <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                                    <img src={item.reviewerimg} />
                                 </div>
                             </div>
                             <p className="text-enter">{item.reviewername}</p>
