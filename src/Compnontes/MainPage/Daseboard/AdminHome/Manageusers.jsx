@@ -86,13 +86,15 @@ const Manageusers = () => {
                                     <td>{item?.name}</td>
                                     <td>{item?.email}</td>
                                     {
-                                        item?.roll === 'admin'?'Admin':<td><button onClick={() => hendleadmin(item._id)} className="btn btn-sm hover:bg-green-200 bg-green-100">Admin</button></td>
+                                        item?.roll === 'admin'?<td><button   className="btn btn-sm  bg-gray-500">Admin</button></td>:<td><button onClick={() => hendleadmin(item._id)} className="btn btn-sm hover:bg-green-200 bg-green-100">Admin</button></td>
                                     }
                                     {
-                                        item?.roll === 'agent'?'Agent': <td><button onClick={() => hendleagent(item._id)} className="btn btn-sm  hover:bg-green-200 bg-green-100">Agent</button></td>
+                                        item?.roll === 'agent'?<td><button className="btn btn-sm  bg-gray-500">Agent</button></td>:
+                                         <td><button onClick={() => hendleagent(item._id)} className="btn btn-sm  hover:bg-green-200 bg-green-100">Agent</button></td>
                                     }
                                     {
-                                        item?.roll==='fraud'?'Fraud':<td><button onClick={()=>hendlefraud(item._id)}  className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>
+                                        item?.roll==='fraud'?<td><button  className="btn btn-sm  bg-gray-500">Fraud</button></td>:
+                                        <td><button onClick={()=>hendlefraud(item._id)}  className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>
                                     }
                                     <td><button onClick={() => hendledelete(item._id)} className="btn btn-sm  hover:bg-green-200 bg-green-100">Delete</button></td>
 

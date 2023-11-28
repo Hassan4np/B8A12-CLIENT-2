@@ -2,13 +2,15 @@ import { useQuery } from "react-query";
 import Heading from "../../GoolebalSecton/Heading";
 import useAxousSecret from "../../Hools/useAxousSecret";
 import { Link } from "react-router-dom";
+import useAuth from "../../Hools/useAuth";
 
 const Userbought = () => {
     const axoussec = useAxousSecret();
+    const {user} = useAuth();
     const { data, isLoading } = useQuery({
-        queryKey: ['boughts'],
+        queryKey: ['boughts',user.email],
         queryFn: async () => {
-            const res = await axoussec.get(`/boughts`);
+            const res = await axoussec.get(`/boughts/user/${user.email}`);
             console.log(res.data)
             return res.data
         }

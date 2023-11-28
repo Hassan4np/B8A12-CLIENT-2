@@ -125,9 +125,13 @@ const CheckoutForm = () => {
                 teansactitonid && <p className="text-green-600">Tan id:{teansactitonid}</p>
             }
             <div className=" text-center mt-10">
-                <button className="btn btn-success btn-sm" type="submit" disabled={!stripe || !clientSecret}>
+               {
+                cards.length>0? <button className="btn btn-success btn-sm" type="submit" disabled={!stripe || !clientSecret}>
+                Pay
+            </button>: <button disabled className="btn btn-success btn-sm" type="submit" >
                     Pay
                 </button>
+               }
             </div>
         </form>
     );

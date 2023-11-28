@@ -1,23 +1,33 @@
 import { Link, Outlet } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare,  } from 'react-icons/fa';
+import useAxousPublic from "../Hools/useAxousPublic";
+import { useQuery } from "react-query";
+import useAuth from "../Hools/useAuth";
 
 
 const DaseBoard = () => {
     //   const isAdmin = true;
     // const isAgent = true
-    const isUser = true
-
-    const isAdmin = false;
-    const isAgent = false
-    // const isUser = false
+    const axospublic = useAxousPublic();
+    const {user} = useAuth();
+ 
+    const {data} = useQuery({
+        queryKey:['users/admin'],
+        queryFn: async ()=>{
+            const res = await  axospublic.get(`/users/admin/${user.email}`);
+            console.log(res.data);
+            return res.data          
+        }
+    });
+    console.log(data);
     return (
         <div className="flex">
             <div className=" min-h-[800px] bg-orange-400 w-1/5">
 
                 {/* Agentsection------------> */}
                 {
-                    isAgent && <>
+                    data==='agent' && <>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/agenthome"><AiOutlineShoppingCart></AiOutlineShoppingCart>Agent Profile</Link></li>
                         </ul>
@@ -38,7 +48,7 @@ const DaseBoard = () => {
 
                 {/* admin section ------> */}
                 {
-                    isAdmin && <>
+                   data==='admin' && <>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><FaCalendar></FaCalendar>Profile</Link></li>
                         </ul>
@@ -53,7 +63,7 @@ const DaseBoard = () => {
                         </ul>
                     </>} :
                 {
-                    isUser &&  <>
+                    data==='user' &&  <>
                     <ul className="menu p-2">
                         <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/userhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>MyProfile</Link></li>
                     </ul>

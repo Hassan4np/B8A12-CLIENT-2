@@ -38,11 +38,13 @@ const LoginPage = () => {
         console.log('Email:', email);
         console.log('Password:', password);
 
+
         UserLogin(email, password)
             .then((result) => {
                 const loggedinUpser = result.user;
                 console.log(loggedinUpser)
                 //   navigate(from, {replace:true})
+                navigate(loc?.state ? loc.state:"/");
             })
             .catch(error => {
                 console.log(error.message)

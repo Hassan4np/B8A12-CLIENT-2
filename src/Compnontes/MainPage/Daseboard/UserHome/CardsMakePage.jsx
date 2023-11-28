@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAxousSecret from "../../Hools/useAxousSecret";
 import Swal from "sweetalert2";
 import useAuth from "../../Hools/useAuth";
+import { useEffect, useState } from "react";
 
 
 const CardsMakePage = () => {
@@ -11,25 +12,27 @@ const CardsMakePage = () => {
     const { title, price, location, agentName, image,agentemail } = data;
     const { register, handleSubmit, reset } = useForm();
     const axioussecret = useAxousSecret();
+
     const { user } = useAuth();
     console.log(data)
 
     console.log(price)
-    const preprce = parseInt(price?.split('-')[0]);
-    const preprcee = parseInt(price?.split('-')[1]);
+    // const preprce = parseInt(price?.split('-')[0]);
+    // const preprcee = parseInt(price?.split('-')[1]);
     const onSubmit = async (data) => {
         // console.log(data)
+       
 
-        const recprice = data.price;
-        if (preprce > recprice || preprcee < recprice) {
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Sorry your price range is not valided",
-            });
-            return;
+        const recprice = data?.price;
+        // if (preprce > recprice || preprcee < recprice) {
+        //     Swal.fire({
+        //         icon: "error",
+        //         title: "Oops...",
+        //         text: "Sorry your price range is not valided",
+        //     });
+        //     return;
 
-        }
+        // }
         const menuitem = {
             title: data.title,
             price: recprice,
@@ -40,6 +43,7 @@ const CardsMakePage = () => {
             date: data.date,
             image: image,
             agentemail:agentemail,
+            email:user?.email,
             status: 'pending'
         }
         console.log(menuitem)

@@ -9,7 +9,7 @@ import useAxousPublic from '../Hools/useAxousPublic';
 import Swal from 'sweetalert2';
 
 const SignupPage = () => {
-  const { UserSignup,user } = useAuth();
+  const { UserSignup, user } = useAuth();
   const navigate = useNavigate();
   const [errors, seterror] = useState('');
   const axospublic = useAxousPublic();
@@ -29,6 +29,16 @@ const SignupPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
+    if (formData.password.length < 6) {
+      seterror("Give 6 Character Password")
+      return;
+    } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-=]/.test(formData.password)) {
+      seterror("Give me spical caracter");
+      return;
+    } else if (!/[A-Z]/.test(formData.password)) {
+      seterror("Give me captial letter")
+      return;
+    }
     UserSignup(formData?.email, formData?.password)
       .then((result) => {
         console.log(result.user)
@@ -36,32 +46,32 @@ const SignupPage = () => {
           displayName: formData.name,
           photoURL: formData.photo,
         })
-        .then(()=>{
-          //some thing wrong-------------------------->
-          const usersinfo = {
-              email:formData?.email,
-              name:formData.name,
-          }
-          console.log(usersinfo)
-          axospublic.post('/users',usersinfo)
-          .then(res=>{
-              console.log(res.data)
-              if(res.data.acknowledged){
+          .then(() => {
+            //some thing wrong-------------------------->
+            const usersinfo = {
+              email: formData?.email,
+              name: formData.name,
+            }
+            console.log(usersinfo)
+            axospublic.post('/users', usersinfo)
+              .then(res => {
+                console.log(res.data)
+                if (res.data.acknowledged) {
                   Swal.fire({
-                      position: 'top-center',
-                      icon: 'success',
-                      title: 'Your Register Successfully ',
-                      showConfirmButton: false,
-                      timer: 1500
-                    })
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Your Register Successfully ',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
                   navigate('/login')
-              }
+                }
+              })
+              .catch(error => {
+                console.log(error)
+              })
           })
-          .catch(error=>{
-              console.log(error)
-          })
-      })
-        
+
       })
       .catch(error => {
         seterror(error.message)

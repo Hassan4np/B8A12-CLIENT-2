@@ -14,7 +14,7 @@ const Review = () => {
         queryFn: async () => {
             const res = await axossect.get(`/review`);
             console.log(res.data);
-            const myreview = res?.data?.filter(item => item.email === user.email);
+            const myreview = res?.data?.filter(item => item.revieweremail=== user.email);
             return myreview
         }
     })
