@@ -10,7 +10,7 @@ const DaseBoard = () => {
     //   const isAdmin = true;
     // const isAgent = true
     const axospublic = useAxousPublic();
-    const {user} = useAuth();
+    const {user,UserLogout} = useAuth();
  
     const {data} = useQuery({
         queryKey:['users/admin'],
@@ -21,6 +21,13 @@ const DaseBoard = () => {
         }
     });
     console.log(data);
+    const userlogout = () => {
+        UserLogout()
+            .then({})
+            .then(error => {
+                console.log(error)
+            })
+    }
     return (
         <div className="flex">
             <div className=" min-h-[800px] bg-orange-400 w-1/5">
@@ -88,7 +95,7 @@ const DaseBoard = () => {
                 </ul>
 
                 <ul className="menu p-2">
-                    <button ><li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/"><FaRegMinusSquare></FaRegMinusSquare>Logout</Link></li></button>
+                    <button onClick={userlogout} ><li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/"><FaRegMinusSquare></FaRegMinusSquare>Logout</Link></li></button>
                 </ul>
 
 
