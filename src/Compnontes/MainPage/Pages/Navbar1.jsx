@@ -5,9 +5,9 @@ import logo from "..//../../assets/images.png"
 const Navbar1 = () => {
     const { user,UserLogout } = useAuth();
     const links = <>
-        <Link to="/" className="mr-5"><button className="btn btn-sm bg-green-300"> <li><a>Home</a></li></button></Link>
-        <Link to="/proparis" className="mr-5"><button className="btn btn-sm bg-green-300"> <li><a>All Properties</a></li></button></Link>
-        <Link to="/daseboard/userhome" className="mr-5"><button className="btn btn-sm bg-green-300"> <li><a>dashboard</a></li></button></Link>
+        <Link to="/" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>Home</li></button></Link>
+        <Link to="/proparis" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>All Properties</li></button></Link>
+        <Link to="/daseboard/userhome" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>dashboard</li></button></Link>
      
     </>
  const userlogout = () => {

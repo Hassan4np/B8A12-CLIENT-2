@@ -1,4 +1,8 @@
-
+import { useQuery } from "react-query";
+import Heading from "../../GoolebalSecton/Heading";
+import useAllPropotismenu from "../../Hools/useAllPropotismenu";
+import useAxousSecret from "../../Hools/useAxousSecret";
+import useAuth from "../../Hools/useAuth";
 
 const Solditem = () => {
     const axoussec = useAxousSecret();
@@ -13,7 +17,7 @@ const Solditem = () => {
     });
     return (
         <div>
-            
+            <Heading title='sold item'></Heading>
         </div>
     );
 };

@@ -65,7 +65,8 @@ const CardDetails = () => {
             agentImage:data?.agent_img,
             status:data?.status,
             price:data?.price,
-            email:user?.email
+            email:user?.email,
+            agentemail:data?.agent_email,
         }
         axousseret.post('/cards',Cardsinfo)
         .then(res=>{

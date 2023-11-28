@@ -24,6 +24,8 @@ import Updateitem from "../Daseboard/AgentHome/Updateitem";
 import Manageitem from "../Daseboard/AdminHome/Manageitem";
 import Manageusers from "../Daseboard/AdminHome/Manageusers";
 import Allreview from "../Daseboard/AdminHome/Allreview";
+import Requestedoffer from "../Daseboard/AgentHome/Requestedoffer";
+import Solditem from "../Daseboard/AgentHome/Solditem";
 
 
 const router = createBrowserRouter([
@@ -93,19 +95,27 @@ const router = createBrowserRouter([
                 path: 'payment',
                 element: <Payment></Payment>
             },
-           
+
             {
-                path:'additem',
-                element:<Additem></Additem>
+                path: 'additem',
+                element: <Additem></Additem>
             },
             {
-                path:'myitem',
-                element:<Myitem></Myitem>
+                path: 'myitem',
+                element: <Myitem></Myitem>
             },
             {
-                path:'update/:id',
-                element:<Updateitem></Updateitem>,
-                loader:({params})=>fetch(`http://localhost:5000/advertisement/${params.id}`)
+                path: 'update/:id',
+                element: <Updateitem></Updateitem>,
+                loader: ({ params }) => fetch(`http://localhost:5000/advertisement/${params.id}`)
+            },
+            {
+                path: 'requestitem',
+                element:<Requestedoffer></Requestedoffer>
+            },
+            {
+                path:'solditem',
+                element:<Solditem></Solditem>
             },
             //Admin section------------>
             {
@@ -113,16 +123,16 @@ const router = createBrowserRouter([
                 element: <PrivateRout><AdminHome></AdminHome></PrivateRout>
             },
             {
-                path:'itemmange',
-                element:<Manageitem></Manageitem>
+                path: 'itemmange',
+                element: <Manageitem></Manageitem>
             },
             {
-                path:'manageusers',
-                element:<Manageusers></Manageusers>
+                path: 'manageusers',
+                element: <Manageusers></Manageusers>
             },
             {
-                path:'allreview',
-                element:<Allreview></Allreview>
+                path: 'allreview',
+                element: <Allreview></Allreview>
             }
 
         ]

@@ -37,7 +37,6 @@ const Manageitem = () => {
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
-                        {/* head */}
                         <thead>
                             <tr>
                                 <th></th>
@@ -60,10 +59,12 @@ const Manageitem = () => {
                             <td>{item?.agent_email}</td>
                             <td>{item?.price}</td>
                            {
-                            item?.status==='verified'? " verified":<td><button onClick={()=>hendleverified(item._id)}  className="btn btn-sm bg-green-200">Verified</button></td>
+                            item?.status==='verified'? <td><button disabled className="btn btn-sm bg-gray-500">Verified</button></td>:
+                            <td><button onClick={()=>hendleverified(item._id)}  className="btn btn-sm bg-green-200">Verified</button></td>
                            }
                             {
-                                item?.status==='rejected' ? "rejected": <td><button onClick={()=>hendlereject(item._id)} className="btn btn-sm bg-green-200">Reject</button></td>                               
+                                item?.status==='rejected' ? <td><button disabled  className="btn btn-sm bg-gray-500">Rejected</button></td> :
+                                 <td><button onClick={()=>hendlereject(item._id)} className="btn btn-sm bg-green-200">Reject</button></td>                               
                             }
                           
                         </tr>

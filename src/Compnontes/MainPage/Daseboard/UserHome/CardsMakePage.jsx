@@ -8,7 +8,7 @@ import useAuth from "../../Hools/useAuth";
 
 const CardsMakePage = () => {
     const data = useLoaderData();
-    const { title, price, location, agentName, image } = data;
+    const { title, price, location, agentName, image,agentemail } = data;
     const { register, handleSubmit, reset } = useForm();
     const axioussecret = useAxousSecret();
     const { user } = useAuth();
@@ -39,6 +39,7 @@ const CardsMakePage = () => {
             AgentName: data.AgentName,
             date: data.date,
             image: image,
+            agentemail:agentemail,
             status: 'pending'
         }
         console.log(menuitem)

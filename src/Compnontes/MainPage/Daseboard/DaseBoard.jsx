@@ -28,10 +28,10 @@ const DaseBoard = () => {
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/myitem"><FaCalendar></FaCalendar>All Item</Link></li>
                         </ul>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/cart"><FaAd></FaAd>Sold item </Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/solditem"><FaAd></FaAd>Sold item </Link></li>
                         </ul>
                         <ul className="menu p-2">
-                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/users"><FaList></FaList>Requested item</Link></li>
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/requestitem"><FaList></FaList>Requested item</Link></li>
                         </ul>
                     </>
                 }

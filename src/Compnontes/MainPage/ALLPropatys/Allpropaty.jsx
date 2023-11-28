@@ -1,20 +1,22 @@
 
-import useCategory from "../Hools/useCategory";
+import useAllPropotismenu from "../Hools/useAllPropotismenu";
+// import useCategory from "../Hools/useCategory";
 import AllProparisCards from "./AllProparisCards";
 
 
 const Allpropaty = () => {
-    const text = 'verified'
-    const [data,refetch,isLoading] = useCategory({text});
-    console.log(data)
-    if(isLoading){
-        return <div className="text-center mt-10 mb-10"><span className="loading loading-bars loading-lg"></span></div>
-    }
+    // const text = 'verified'
+    // const [data] = useCategory({text});
+    const [menus,] = useAllPropotismenu();
+    const verified = menus?.filter(item=>item.status==='verified');
+
+
+    console.log(verified)
     return (
         <div className="mt-10 mb-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-2">
                 {
-                    data?.map(item=><AllProparisCards item={item} key={item._id}></AllProparisCards>)
+                    verified?.map(item=><AllProparisCards item={item} key={item._id}></AllProparisCards>)
                 }
             </div>
         </div>

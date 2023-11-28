@@ -22,6 +22,7 @@ const CheckoutForm = () => {
     const navigate = useNavigate()
 
     console.log(cards)
+    
     const totalprice = cards.reduce((total, item) => total + parseInt(item.price), 0)
     console.log(totalprice)
     useEffect(() => {
@@ -78,8 +79,9 @@ const CheckoutForm = () => {
                     email: user?.email,
                     price: totalprice,
                     transactionId: paymentIntent.id,
-                    date: cards?.map(item => item.date),
-                    cartIds: cards?.map(item => item._id),
+                    agentemail : cards?.map(item=>item?.agentemail)[0],
+                    date: cards?.map(item => item?.date),
+                    cartIds: cards?.map(item => item?._id),
                 }
                 const res = await axioussecret.post('/payments', payment);
                 console.log("payment save", res.data)

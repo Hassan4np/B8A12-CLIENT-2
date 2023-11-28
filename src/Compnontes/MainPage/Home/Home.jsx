@@ -44,7 +44,7 @@ const Home = () => {
                 <Heading title="OUR SERVICE" subtitle="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati, quas!"></Heading>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
                     {
-                        data?.map(item => <Cards card={item} key={item._id}></Cards>)}
+                        data?.slice(0,4)?.map(item => <Cards card={item} key={item._id}></Cards>)}
                 </div>
                 <div>
                     <Heading title="About us" subtitle="amet consectetur adipisicing elit. Obcaecati, quas!" ></Heading>
