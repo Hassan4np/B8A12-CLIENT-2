@@ -52,7 +52,6 @@ const DaseBoard = () => {
                         </ul>
                     </>
                 }
-
                 {/* admin section ------> */}
                 {
                    data==='admin' && <>
@@ -85,10 +84,6 @@ const DaseBoard = () => {
                     </ul>
                 </>
 }
-
-
-
-
                 <div className="divider divider-horizontal border-b-4 w-2/4"></div>
                 <ul className="menu p-2">
                     <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/"><FaHome></FaHome>Home</Link></li>
