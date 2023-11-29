@@ -30,22 +30,22 @@ const CardsMakePage = () => {
     // console.log(data)
 
     // console.log(price)
-    // const preprce = parseInt(price?.split('-')[0]);
-    // const preprcee = parseInt(price?.split('-')[1]);
+    const preprce = parseInt(cardsinfo?.price?.split('-')[0]);
+    const preprcee = parseInt(cardsinfo?.price?.split('-')[1]);
     const onSubmit = async (data) => {
         // console.log(data)
-       
+       console.log(preprce,preprcee)
 
         const recprice = data?.price;
-        // if (preprce > recprice || preprcee < recprice) {
-        //     Swal.fire({
-        //         icon: "error",
-        //         title: "Oops...",
-        //         text: "Sorry your price range is not valided",
-        //     });
-        //     return;
+        if (preprce > recprice || preprcee < recprice) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Sorry your price range is not valided",
+            });
+            return;
 
-        // }
+        }
         const menuitem = {
             title: data.title,
             price: recprice,
@@ -107,7 +107,7 @@ const CardsMakePage = () => {
                             <label className="label">
                                 <span className="label-text">price</span>
                             </label>
-                            <input type="number" {...register("price", { required: true })} className="input input-bordered w-full" />
+                            <input type="text" {...register("price", { required: true })} className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">

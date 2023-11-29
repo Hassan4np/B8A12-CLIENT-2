@@ -67,6 +67,9 @@ const DaseBoard = () => {
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/allreview"><FaList></FaList>Manage review</Link></li>
                         </ul>
+                        <ul className="menu p-2">
+                            <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/advertise"><FaList></FaList>Advertise</Link></li>
+                        </ul>
                     </>} :
                 {
                     data==='user' &&  <>

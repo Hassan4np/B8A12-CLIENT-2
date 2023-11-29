@@ -26,6 +26,7 @@ import Manageusers from "../Daseboard/AdminHome/Manageusers";
 import Allreview from "../Daseboard/AdminHome/Allreview";
 import Requestedoffer from "../Daseboard/AgentHome/Requestedoffer";
 import Solditem from "../Daseboard/AgentHome/Solditem";
+import Advertise from "../Daseboard/AdminHome/Advertise";
 
 
 const router = createBrowserRouter([
@@ -132,6 +133,10 @@ const router = createBrowserRouter([
             {
                 path: 'allreview',
                 element: <PrivateRout><Allreview></Allreview></PrivateRout>
+            },
+            {
+                path:'advertise',
+                element:<PrivateRout><Advertise></Advertise></PrivateRout>
             }
 
         ]

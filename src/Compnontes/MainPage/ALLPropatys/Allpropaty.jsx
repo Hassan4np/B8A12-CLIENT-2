@@ -1,34 +1,15 @@
 
 import { useState } from "react";
 import useAllPropotismenu from "../Hools/useAllPropotismenu";
-// import useCategory from "../Hools/useCategory";
 import AllProparisCards from "./AllProparisCards";
-import { useQuery } from "react-query";
-import useAxousPublic from "../Hools/useAxousPublic";
+
+
 
 
 const Allpropaty = () => {
-    // const text = 'verified'
-    // const [data] = useCategory({text});
-    const [search,setsearch] = useState();
-    const axospublic = useAxousPublic();
+    const [search,setsearch] = useState('');
     const [menus,] = useAllPropotismenu(search);
     const verified = menus?.filter(item => item.status === 'verified');
-  
-
-    // console.log(verified);
-//-------------------------------------------------
-    // const {data:allads,} = useQuery({
-    //     queryKey:['advertisement'],
-    //     queryFn: async ()=>{
-    //         const res = await  axospublic.get(`/advertisement/all?search=${search}`);
-    //         console.log(res.data);
-    //         const verified = res.data?.filter(item => item.status ==='verified');
-    //         return verified         
-    //     }
-    // });
-    // console.log(allads);
-
 
     const hendlesearch = (e) => {
         e.preventDefault()

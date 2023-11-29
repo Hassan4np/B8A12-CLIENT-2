@@ -1,9 +1,11 @@
 import Heading from "../../GoolebalSecton/Heading";
-import useAllPropotismenu from "../../Hools/useAllPropotismenu";
+import useAllProducts from "../../Hools/useAllProducts";
 import useAxousSecret from "../../Hools/useAxousSecret";
 
 const Manageitem = () => {
-    const [menus, refetch, isLoading] = useAllPropotismenu();
+
+    const [menus, refetch, isLoading] = useAllProducts();
+
     const asxossecer = useAxousSecret();
 
     const hendleverified=(id)=>{

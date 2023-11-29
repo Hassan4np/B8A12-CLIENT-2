@@ -18,7 +18,7 @@ const AdminHome = () => {
                 <h1 className="text-2xl font-bold ">{user?.displayName || " Admin"}</h1>
             </div>
             <div className="boder h-[150px] w-[200px] bg-green-200 flex justify-center rounded-xl items-center">
-                <h1 className="text-2xl font-bold ">{user?.roll || " Admin"}</h1>
+                <h1 className="text-2xl font-bold ">Admin</h1>
             </div>
         </div>
 
