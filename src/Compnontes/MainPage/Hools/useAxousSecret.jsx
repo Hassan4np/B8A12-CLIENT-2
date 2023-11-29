@@ -1,17 +1,17 @@
 
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import useAuth from "./useAuth";
+import useAuth from '../Hools/useAuth';
 
 
 export const axiossecret = axios.create({
-  baseURL: 'https://b8-a12-backend.vercel.app'
+  baseURL: 'http://localhost:5000'
 
 });
 
 const useAxousSecret = () => {
     const nagigate = useNavigate()
-    const {UserLogout} = useAuth()
+    const {UserLogout} = useAuth
     axiossecret.interceptors.request.use(function (config) {
       const token = localStorage.getItem('access-token');
       // console.log('resuest stopped by intercepote', token);

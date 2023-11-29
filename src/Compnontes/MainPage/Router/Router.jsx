@@ -75,7 +75,7 @@ const router = createBrowserRouter([
             {
                 path: 'cardsmake/:id',
                 element: <CardsMakePage></CardsMakePage>,
-                loader: ({ params }) => fetch(`https://b8-a12-backend.vercel.app/cards/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/cards/${params.id}`)
 
             },
             {
@@ -107,7 +107,7 @@ const router = createBrowserRouter([
             {
                 path: 'update/:id',
                 element: <Updateitem></Updateitem>,
-                loader: ({ params }) => fetch(`https://b8-a12-backend.vercel.app/advertisement/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/advertisement/${params.id}`)
             },
             {
                 path: 'requestitem',

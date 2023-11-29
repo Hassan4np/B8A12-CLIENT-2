@@ -82,6 +82,8 @@ const CheckoutForm = () => {
                     agentemail : cards?.map(item=>item?.agentemail)[0],
                     date: cards?.map(item => item?.date),
                     cartIds: cards?.map(item => item?._id),
+                    adsid: cards?.map(item => item?.adsid),
+
                 }
                 const res = await axioussecret.post('/payments', payment);
                 console.log("payment save", res.data)

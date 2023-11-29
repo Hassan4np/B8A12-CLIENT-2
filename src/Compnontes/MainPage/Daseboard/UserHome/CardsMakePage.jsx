@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form";
 import useAxousSecret from "../../Hools/useAxousSecret";
 import Swal from "sweetalert2";
 import useAuth from "../../Hools/useAuth";
-import { useEffect, useState } from "react";
+
 
 
 const CardsMakePage = () => {
     const data = useLoaderData();
-    const { title, price, location, agentName, image,agentemail } = data;
+    const { title, price, location, agentName, image,agentemail,adsid} = data;
     const { register, handleSubmit, reset } = useForm();
     const axioussecret = useAxousSecret();
 
@@ -44,6 +44,7 @@ const CardsMakePage = () => {
             image: image,
             agentemail:agentemail,
             email:user?.email,
+            adsid:adsid,
             status: 'pending'
         }
         console.log(menuitem)
