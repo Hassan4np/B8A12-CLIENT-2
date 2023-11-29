@@ -5,7 +5,7 @@ import useAllProducts from "../../Hools/useAllProducts";
 const Advertise = () => {
     const [menus] = useAllProducts();
     const verified = menus?.filter(item => item.status === 'verified');
-    console.log(verified)
+    // console.log(verified)
     const hendledelete=()=>{
         //todo
     }
@@ -31,7 +31,7 @@ const Advertise = () => {
                         </thead>
                         <tbody>
                             {
-                                menus?.map((it, idx) => <tr key={it._id}>
+                                verified?.map((it, idx) => <tr key={it._id}>
                                     <th>{idx + 1}</th>
                                     <th>
                                         <div className="avatar">
