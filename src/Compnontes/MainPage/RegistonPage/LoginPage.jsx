@@ -43,8 +43,8 @@ const LoginPage = () => {
             .then((result) => {
                 const loggedinUpser = result.user;
                 console.log(loggedinUpser)
-                //   navigate(from, {replace:true})
-                navigate(loc?.state ? loc.state:"/");
+                  navigate(from, {replace:true})
+                // navigate(loc?.state ? loc.state:"/");
             })
             .catch(error => {
                 console.log(error.message)
@@ -64,7 +64,8 @@ const LoginPage = () => {
                 axospublic.post("/users",userinfo)
                 .then(res=>{
                     console.log(res.data)
-                    navigate(loc?.state ? loc.state:"/");
+                    // navigate(loc?.state ? loc.state:"/");
+                    navigate(from, {replace:true})
                 })          
             })
             .catch(error => {

@@ -1,21 +1,21 @@
 import { Link, Outlet } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare,  } from 'react-icons/fa';
-import useAxousPublic from "../Hools/useAxousPublic";
 import { useQuery } from "react-query";
 import useAuth from "../Hools/useAuth";
+import useAxousSecret from "../Hools/useAxousSecret";
 
 
 const DaseBoard = () => {
     //   const isAdmin = true;
     // const isAgent = true
-    const axospublic = useAxousPublic();
+    const axoussec = useAxousSecret();
     const {user,UserLogout} = useAuth();
  
     const {data} = useQuery({
         queryKey:['users/admin'],
         queryFn: async ()=>{
-            const res = await  axospublic.get(`/users/admin/${user.email}`);
+            const res = await  axoussec.get(`/users/admin/${user.email}`);
             console.log(res.data);
             return res.data          
         }

@@ -74,13 +74,12 @@ const router = createBrowserRouter([
             },
             {
                 path: 'cardsmake/:id',
-                element: <CardsMakePage></CardsMakePage>,
-                loader: ({ params }) => fetch(`https://b8-a12-backend.vercel.app/cards/${params.id}`)
+                element: <PrivateRout><CardsMakePage></CardsMakePage>,</PrivateRout>,
 
             },
             {
                 path: 'bought',
-                element: <Userbought></Userbought>
+                element: <PrivateRout><Userbought></Userbought></PrivateRout>
             },
             {
                 path: 'review',
@@ -93,29 +92,29 @@ const router = createBrowserRouter([
             },
             {
                 path: 'payment',
-                element: <Payment></Payment>
+                element: <PrivateRout><Payment></Payment></PrivateRout>
             },
 
             {
                 path: 'additem',
-                element: <Additem></Additem>
+                element: <PrivateRout><Additem></Additem></PrivateRout>
             },
             {
                 path: 'myitem',
-                element: <Myitem></Myitem>
+                element:<PrivateRout> <Myitem></Myitem></PrivateRout>
             },
             {
                 path: 'update/:id',
-                element: <Updateitem></Updateitem>,
-                loader: ({ params }) => fetch(`https://b8-a12-backend.vercel.app/advertisement/${params.id}`)
+                element: <PrivateRout><Updateitem></Updateitem></PrivateRout>,
+                
             },
             {
                 path: 'requestitem',
-                element:<Requestedoffer></Requestedoffer>
+                element:<PrivateRout><Requestedoffer></Requestedoffer></PrivateRout>
             },
             {
                 path:'solditem',
-                element:<Solditem></Solditem>
+                element:<PrivateRout><Solditem></Solditem></PrivateRout>
             },
             //Admin section------------>
             {
@@ -124,15 +123,15 @@ const router = createBrowserRouter([
             },
             {
                 path: 'itemmange',
-                element: <Manageitem></Manageitem>
+                element:<PrivateRout> <Manageitem></Manageitem></PrivateRout>
             },
             {
                 path: 'manageusers',
-                element: <Manageusers></Manageusers>
+                element:<PrivateRout> <Manageusers></Manageusers></PrivateRout>
             },
             {
                 path: 'allreview',
-                element: <Allreview></Allreview>
+                element: <PrivateRout><Allreview></Allreview></PrivateRout>
             }
 
         ]

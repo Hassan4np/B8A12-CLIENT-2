@@ -16,7 +16,7 @@ const CardDetails = () => {
     const { data } = useQuery({
         queryKey: ['advertisement', id],
         queryFn: async () => {
-            const res = await axospublic.get(`/advertisement/${id}`);
+            const res = await axousseret.get(`/advertisement/${id}`);
             console.log(res.data)
             return res.data
         }

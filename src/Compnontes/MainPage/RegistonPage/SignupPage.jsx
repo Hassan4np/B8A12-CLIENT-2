@@ -29,16 +29,16 @@ const SignupPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
-    // if (formData.password.length < 6) {
-    //   seterror("Give 6 Character Password")
-    //   return;
-    // } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-=]/.test(formData.password)) {
-    //   seterror("Give me spical caracter");
-    //   return;
-    // } else if (!/[A-Z]/.test(formData.password)) {
-    //   seterror("Give me captial letter")
-    //   return;
-    // }
+    if (formData.password.length < 6) {
+      seterror("Give 6 Character Password")
+      return;
+    } else if (!/[!@#$%^&*()_+{}\[\]:;<>,.?~\\|\-=]/.test(formData.password)) {
+      seterror("Give me spical caracter");
+      return;
+    } else if (!/[A-Z]/.test(formData.password)) {
+      seterror("Give me captial letter")
+      return;
+    }
     UserSignup(formData?.email, formData?.password)
       .then((result) => {
         console.log(result.user)

@@ -1,22 +1,35 @@
-import { useLoaderData } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Heading from "../../GoolebalSecton/Heading";
 import { useForm } from "react-hook-form";
-import useAxousSecret from "../../Hools/useAxousSecret";
+
 import Swal from "sweetalert2";
 import useAuth from "../../Hools/useAuth";
+import { useQuery } from "react-query";
+import useAxousSecret from "../../Hools/useAxousSecret";
 
 
 
 const CardsMakePage = () => {
-    const data = useLoaderData();
-    const { title, price, location, agentName, image,agentemail,adsid} = data;
+
+    const {id} = useParams();
+    const axoussec = useAxousSecret();
+
+    const { data:cardsinfo, } = useQuery({
+        queryKey: ['cards',id],
+        queryFn: async () => {
+            const res = await axoussec.get(`/cards/${id}`);
+            console.log(res.data)
+            return res.data
+        }
+    });
+    console.log(cardsinfo)
+
     const { register, handleSubmit, reset } = useForm();
-    const axioussecret = useAxousSecret();
 
     const { user } = useAuth();
-    console.log(data)
+    // console.log(data)
 
-    console.log(price)
+    // console.log(price)
     // const preprce = parseInt(price?.split('-')[0]);
     // const preprcee = parseInt(price?.split('-')[1]);
     const onSubmit = async (data) => {
@@ -36,19 +49,19 @@ const CardsMakePage = () => {
         const menuitem = {
             title: data.title,
             price: recprice,
-            location: location,
+            location: cardsinfo?.location,
             buyerName: data.buyerName,
             buyerEmail: data.buyerEmail,
             AgentName: data.AgentName,
             date: data.date,
-            image: image,
-            agentemail:agentemail,
+            image: cardsinfo?.image,
+            agentemail:cardsinfo?.agentemail,
             email:user?.email,
-            adsid:adsid,
+            adsid:cardsinfo?.adsid,
             status: 'pending'
         }
         console.log(menuitem)
-        const menures = await axioussecret.post('/boughts', menuitem);
+        const menures = await axoussec.post('/boughts', menuitem);
         console.log(menures.data)
         if (menures.data.insertedId) {
             reset()
@@ -71,7 +84,7 @@ const CardsMakePage = () => {
                         <label className="label">
                             <span className="label-text">Title</span>
                         </label>
-                        <input type="text" {...register("title", { required: true })} defaultValue={title} readOnly placeholder="Title" className="input input-bordered w-full" />
+                        <input type="text" {...register("title", { required: true })} defaultValue={cardsinfo?.title} readOnly placeholder="Title" className="input input-bordered w-full" />
 
                     </div>
                     <div className="flex gap-5">
@@ -79,13 +92,13 @@ const CardsMakePage = () => {
                             <label className="label">
                                 <span className="label-text">Location</span>
                             </label>
-                            <input type="text" {...register("loction", { required: true })} defaultValue={location} readOnly placeholder="Location" className="input input-bordered w-full" />
+                            <input type="text" {...register("loction", { required: true })} defaultValue={cardsinfo?.location} readOnly placeholder="Location" className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
                                 <span className="label-text">Agant Name</span>
                             </label>
-                            <input type="text" {...register("AgentName", { required: true })} defaultValue={agentName} readOnly placeholder="Agent name" className="input input-bordered w-full" />
+                            <input type="text" {...register("AgentName", { required: true })} defaultValue={cardsinfo?.agentName} readOnly placeholder="Agent name" className="input input-bordered w-full" />
 
                         </div>
                     </div>
@@ -109,7 +122,7 @@ const CardsMakePage = () => {
                             <label className="label">
                                 <span className="label-text">buyer email</span>
                             </label>
-                            <input type="text" {...register("buyerEmail", { required: true })} defaultValue={user.email} readOnly placeholder="email" className="input input-bordered w-full" />
+                            <input type="text" {...register("buyerEmail", { required: true })} defaultValue={user?.email} readOnly placeholder="email" className="input input-bordered w-full" />
                         </div>
                         <div className="form-control w-full">
                             <label className="label">
