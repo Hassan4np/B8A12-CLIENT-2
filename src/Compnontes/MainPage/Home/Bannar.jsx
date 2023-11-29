@@ -7,9 +7,9 @@ const Bannar = () => {
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="hero-content text-center text-neutral-content">
                     <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">Wellcome</h1>
-                        <p className="mb-5">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <h1 className="mb-5 text-gray-300 text-2xl md:text-5xl font-bold">WELLCOME</h1>
+                        <p className="mb-5 text-gray-300 text-[14px] md:text-base">Feel free to expand on these sections and elaborate on specific examples or case studies within each category of advancements.</p>
+                        <button className="btn bg-green-300">Get Started</button>
                     </div>
                 </div>
             </div>

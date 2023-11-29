@@ -8,7 +8,6 @@ import { useState } from "react";
 
 
 const CardDetails = () => {
-    const axospublic = useAxousPublic();
     const axousseret = useAxousSecret();
     const [close,setclose]=useState(true)
     const {user} = useAuth();
@@ -91,7 +90,7 @@ console.log(close)
     return (
         <div className="mt-10 ">
             <div className="relative md:flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-                <div className="relative w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
+                <div className="relative md:w-2/5 m-0 overflow-hidden text-gray-700 bg-white rounded-r-none shrink-0 rounded-xl bg-clip-border">
                     <img
                         src={data?.image}
                         alt="image"

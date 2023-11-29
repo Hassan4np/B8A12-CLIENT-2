@@ -7,13 +7,12 @@ import useAxousSecret from "../Hools/useAxousSecret";
 
 
 const DaseBoard = () => {
-    //   const isAdmin = true;
-    // const isAgent = true
+
     const axoussec = useAxousSecret();
     const {user,UserLogout} = useAuth();
  
     const {data} = useQuery({
-        queryKey:['users/admin'],
+        queryKey:['users/admin',user.email],
         queryFn: async ()=>{
             const res = await  axoussec.get(`/users/admin/${user.email}`);
             console.log(res.data);
