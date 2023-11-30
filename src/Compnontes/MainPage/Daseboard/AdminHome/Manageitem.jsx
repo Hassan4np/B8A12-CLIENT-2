@@ -4,7 +4,7 @@ import useAxousSecret from "../../Hools/useAxousSecret";
 
 const Manageitem = () => {
 
-    const [menus, refetch, isLoading] = useAllProducts();
+    const [menus, refetch] = useAllProducts();
 
     const asxossecer = useAxousSecret();
 

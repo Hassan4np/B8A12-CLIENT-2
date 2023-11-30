@@ -37,9 +37,9 @@ const Feedback = () => {
                                     <img src={item.reviewerimg} />
                                 </div>
                             </div>
-                            <p className="text-enter">{item.reviewername}</p>
-                            <h5 className="text-center">{item.title}</h5>
-                            <h5 className="text-center">{item.dec}</h5>
+                            <p className="text-enter font-medium text-black text-base">{item.reviewername}</p>
+                            <h6 className="text-center text-lg">{item.title}</h6>
+                            <p className="text-center text-gray-500 text-base">{item.dec}</p>
                         </div>
                     </SwiperSlide>)
                 }

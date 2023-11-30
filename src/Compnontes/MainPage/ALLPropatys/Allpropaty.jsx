@@ -34,7 +34,7 @@ const Allpropaty = () => {
                 </button>
                 <div className="mt-4">
                     <form onSubmit={hendlesearch}>
-                        <input className="text-xl p-1 ml-10 md:ml-1 w-[130px] border" name='search' type="text" placeholder="Search..." />
+                        <input className="text-lg p-1 ml-10 md:ml-1 w-[130px] border" name='search' type="text" placeholder="Search..." />
                         <button className="  rounded px-6   md:px-2 md:rounded-r-xl ml-16 md:ml-1 py-2 mt-1 md:mt-0 bg-green-300">Search</button>
                     </form>
                 </div>

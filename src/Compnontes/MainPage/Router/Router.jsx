@@ -27,6 +27,8 @@ import Allreview from "../Daseboard/AdminHome/Allreview";
 import Requestedoffer from "../Daseboard/AgentHome/Requestedoffer";
 import Solditem from "../Daseboard/AgentHome/Solditem";
 import Advertise from "../Daseboard/AdminHome/Advertise";
+import AdminPrivaterout from "../Daseboard/AdminHome/AdminPrivaterout";
+import AgentPrivaterout from "../Daseboard/AgentHome/AgentPrivaterout";
 
 
 const router = createBrowserRouter([
@@ -98,24 +100,24 @@ const router = createBrowserRouter([
 
             {
                 path: 'additem',
-                element: <PrivateRout><Additem></Additem></PrivateRout>
+                element:<PrivateRout><AgentPrivaterout><Additem></Additem></AgentPrivaterout></PrivateRout>
             },
             {
                 path: 'myitem',
-                element:<PrivateRout> <Myitem></Myitem></PrivateRout>
+                element:<PrivateRout><AgentPrivaterout> <Myitem></Myitem></AgentPrivaterout></PrivateRout>
             },
             {
                 path: 'update/:id',
-                element: <PrivateRout><Updateitem></Updateitem></PrivateRout>,
+                element: <PrivateRout><AgentPrivaterout><Updateitem></Updateitem></AgentPrivaterout></PrivateRout>,
                 
             },
             {
                 path: 'requestitem',
-                element:<PrivateRout><Requestedoffer></Requestedoffer></PrivateRout>
+                element:<PrivateRout><AgentPrivaterout><Requestedoffer></Requestedoffer></AgentPrivaterout></PrivateRout>
             },
             {
                 path:'solditem',
-                element:<PrivateRout><Solditem></Solditem></PrivateRout>
+                element:<PrivateRout><AgentPrivaterout><Solditem></Solditem></AgentPrivaterout></PrivateRout>
             },
             //Admin section------------>
             {
@@ -124,19 +126,19 @@ const router = createBrowserRouter([
             },
             {
                 path: 'itemmange',
-                element:<PrivateRout> <Manageitem></Manageitem></PrivateRout>
+                element:<Manageitem></Manageitem>
             },
             {
                 path: 'manageusers',
-                element:<PrivateRout> <Manageusers></Manageusers></PrivateRout>
+                element:<PrivateRout><AdminPrivaterout><Manageusers></Manageusers></AdminPrivaterout></PrivateRout>
             },
             {
                 path: 'allreview',
-                element: <PrivateRout><Allreview></Allreview></PrivateRout>
+                element: <Allreview></Allreview>
             },
             {
                 path:'advertise',
-                element:<PrivateRout><Advertise></Advertise></PrivateRout>
+                element:<PrivateRout><AdminPrivaterout><Advertise></Advertise></AdminPrivaterout></PrivateRout>
             }
 
         ]

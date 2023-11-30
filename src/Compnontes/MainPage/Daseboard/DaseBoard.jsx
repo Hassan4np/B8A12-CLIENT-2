@@ -1,25 +1,19 @@
 import { Link, Outlet } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaAd, FaCalendar, FaHome, FaList, FaRegMinusSquare,  } from 'react-icons/fa';
-import { useQuery } from "react-query";
 import useAuth from "../Hools/useAuth";
-import useAxousSecret from "../Hools/useAxousSecret";
 
+import useAdminAgentUser from "../Hools/useAdminAgentUser";
 
 const DaseBoard = () => {
+    const {UserLogout} = useAuth();
+    const [isAdAgUs,isAdAgUsloading] = useAdminAgentUser();
 
-    const axoussec = useAxousSecret();
-    const {user,UserLogout} = useAuth();
- 
-    const {data} = useQuery({
-        queryKey:['users/admin',user.email],
-        queryFn: async ()=>{
-            const res = await  axoussec.get(`/users/admin/${user.email}`);
-            console.log(res.data);
-            return res.data          
-        }
-    });
-    console.log(data);
+
+
+    if(isAdAgUsloading){
+        return <div className="text5xl">Loading...</div>
+    }
     const userlogout = () => {
         UserLogout()
             .then({})
@@ -33,7 +27,7 @@ const DaseBoard = () => {
 
                 {/* Agentsection------------> */}
                 {
-                    data==='agent' && <>
+                    isAdAgUs==='agent' && <>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/agenthome"><AiOutlineShoppingCart></AiOutlineShoppingCart>Agent Profile</Link></li>
                         </ul>
@@ -53,7 +47,7 @@ const DaseBoard = () => {
                 }
                 {/* admin section ------> */}
                 {
-                   data==='admin' && <>
+                   isAdAgUs==='admin' && <>
                         <ul className="menu p-2">
                             <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/adminhome"><FaCalendar></FaCalendar>Profile</Link></li>
                         </ul>
@@ -71,7 +65,7 @@ const DaseBoard = () => {
                         </ul>
                     </>} :
                 {
-                    data==='user' &&  <>
+                    isAdAgUs==='user' &&  <>
                     <ul className="menu p-2">
                         <li className=" border bg-green-200 rounded-md  text-2xl"><Link to="/daseboard/userhome"><AiOutlineShoppingCart></AiOutlineShoppingCart>MyProfile</Link></li>
                     </ul>

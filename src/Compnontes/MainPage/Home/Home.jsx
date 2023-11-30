@@ -15,21 +15,15 @@ import Feedback from "./Feedback";
 const Home = () => {
 
     const axospublic = useAxousPublic();
-    // const { data, isLoading } = useQuery({
-    //     queryKey: ['advertisement'],
-    //     queryFn: async () => {
-    //         const res = await axospublic.get('/advertisement')
-    //         console.log(res.data)
-    //         return res.data
-    //     }
-    // })
+ 
 
     const {data:menus,isLoading} = useQuery({
         queryKey:['advertisement'],
         queryFn: async ()=>{
             const res = await  axospublic.get(`/advertisement/all`);
             console.log(res.data);
-            return res.data          
+            const verified = res?.data?.filter(its=>its.status === 'verified');
+            return verified          
         }
     });
 
