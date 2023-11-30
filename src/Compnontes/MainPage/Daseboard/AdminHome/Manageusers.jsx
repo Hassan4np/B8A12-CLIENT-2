@@ -93,8 +93,9 @@ const Manageusers = () => {
                                          <td><button onClick={() => hendleagent(item._id)} className="btn btn-sm  hover:bg-green-200 bg-green-100">Agent</button></td>
                                     }
                                     {
-                                        item?.roll==='fraud'?<td><button  className="btn btn-sm  bg-gray-500">Fraud</button></td>:
-                                        <td><button onClick={()=>hendlefraud(item._id)}  className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>
+                                        item?.roll==='agent'? <td><button onClick={()=>hendlefraud(item._id)}  className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>:
+                                        <td><button disabled className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>
+                                        
                                     }
                                     <td><button onClick={() => hendledelete(item._id)} className="btn btn-sm  hover:bg-green-200 bg-green-100">Delete</button></td>
 

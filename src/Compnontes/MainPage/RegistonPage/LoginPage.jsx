@@ -65,7 +65,7 @@ const LoginPage = () => {
                 .then(res=>{
                     console.log(res.data)
                     // navigate(loc?.state ? loc.state:"/");
-                    navigate(from, {replace:true})
+                    navigate('/');
                 })          
             })
             .catch(error => {

@@ -77,6 +77,7 @@ const CheckoutForm = () => {
                 //save user info and card all products------->
                 const payment = {
                     email: user?.email,
+                    buyername: user?.displayName,
                     price: totalprice,
                     transactionId: paymentIntent.id,
                     agentemail : cards?.map(item=>item?.agentemail)[0],
