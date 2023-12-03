@@ -11,15 +11,16 @@ const DaseBoard = () => {
 
 
 
-    if(isAdAgUsloading){
-        return <div className="text5xl">Loading...</div>
-    }
+   
     const userlogout = () => {
         UserLogout()
             .then({})
             .then(error => {
                 console.log(error)
             })
+    };
+    if(isAdAgUsloading){
+        return <div className="text5xl">Loading...</div>
     }
     return (
         <div className="flex">

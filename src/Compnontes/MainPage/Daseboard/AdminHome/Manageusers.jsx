@@ -1,11 +1,13 @@
 import Heading from "../../GoolebalSecton/Heading";
 import useAllUsers from "../../Hools/useAllUsers";
+import useAxousPublic from "../../Hools/useAxousPublic";
 import useAxousSecret from "../../Hools/useAxousSecret";
 
 
 const Manageusers = () => {
     const [users, isLoading, refetch] = useAllUsers();
     const asxossecer = useAxousSecret();
+    const asxopublc = useAxousPublic();
     console.log(users)
     const hendleadmin = (id) => {
 
@@ -35,7 +37,6 @@ const Manageusers = () => {
                 console.log(error)
             })
     };
-
     const hendlefraud = (id) => {
         console.log(id)
         const roll = { roll: 'fraud' }
@@ -48,7 +49,9 @@ const Manageusers = () => {
             .catch(error => {
                 console.log(error)
             })
-    }
+    };
+
+
     const hendledelete = (id) => {
         console.log(id)
         asxossecer.delete(`/users/${id}`)
@@ -93,7 +96,7 @@ const Manageusers = () => {
                                          <td><button onClick={() => hendleagent(item._id)} className="btn btn-sm  hover:bg-green-200 bg-green-100">Agent</button></td>
                                     }
                                     {
-                                        item?.roll==='agent'? <td><button onClick={()=>hendlefraud(item._id)}  className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>:
+                                        item?.roll==='agent'? <td><button onClick={()=>hendlefraud(item.email)}  className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>:
                                         <td><button disabled className="btn btn-sm  hover:bg-green-200 bg-green-100">Fraud</button></td>
                                         
                                     }
