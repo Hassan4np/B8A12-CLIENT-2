@@ -2,6 +2,7 @@
 import { useState } from "react";
 import useAllPropotismenu from "../Hools/useAllPropotismenu";
 import AllProparisCards from "./AllProparisCards";
+import { FaSearch } from "react-icons/fa";
 
 
 
@@ -34,8 +35,9 @@ const Allpropaty = () => {
                 </button>
                 <div className="mt-4">
                     <form onSubmit={hendlesearch}>
-                        <input className="text-lg p-1 ml-10 md:ml-1 w-[130px] border" name='search' type="text" placeholder="Search..." />
-                        <button className="  rounded px-6   md:px-2 md:rounded-r-xl ml-16 md:ml-1 py-2 mt-1 md:mt-0 bg-green-300">Search</button>
+                        <input className="text-lg p-1.5 rounded-l-md ml-10 md:ml-1 w-[130px] border" name='search' type="text" placeholder="Search..." />
+                        <button className=" rounded px-6  md:text-lg md:font-medium  md:px-2 md:rounded-r-xl ml-16 md:ml-1 py-2 mt-1 md:mt-0 bg-green-300">Search</button>
+                      
                     </form>
                 </div>
             </div>

@@ -1,5 +1,4 @@
 import { useQuery } from "react-query";
-import useAxousPublic from "../Hools/useAxousPublic";
 import { useParams } from "react-router-dom";
 import useAxousSecret from "../Hools/useAxousSecret";
 import Swal from "sweetalert2";
@@ -9,8 +8,8 @@ import { useState } from "react";
 
 const CardDetails = () => {
     const axousseret = useAxousSecret();
-    const [close,setclose]=useState(true)
-    const {user} = useAuth();
+    const [close, setclose] = useState('')
+    const { user } = useAuth();
     const { id } = useParams();
     const { data } = useQuery({
         queryKey: ['advertisement', id],
@@ -28,65 +27,71 @@ const CardDetails = () => {
         const dec = form.dec.value;
         const review = {
             title,
-             dec,
-             agentName:data.agent_name,
-             date: new Date(),
-             revieweremail:user?.email,
-             reviewername:user?.displayName,
-             reviewerimg:user?.photoURL,
-             
+            dec,
+            agentName: data.agent_name,
+            date: new Date(),
+            revieweremail: user?.email,
+            reviewername: user?.displayName,
+            reviewerimg: user?.photoURL,
+
         }
         console.log(review)
-        axousseret.post('/review',review)
-    .then(res=>{
-        console.log(res.data)
-        if(res.data.acknowledged){
-            setclose(false)
-            Swal.fire({
-                position: 'top-center',
-                icon: 'success',
-                title: 'Review added Successfully ',
-                showConfirmButton: false,
-                timer: 1500
-              })
-        }
-    })
-    .catch(error=>{
-        console.log(error)
-    })
+        axousseret.post('/review', review)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.acknowledged) {
+                
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Review added Successfully ',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    setclose('dialog')
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
     };
     const hendlecards = () => {
         const Cardsinfo = {
-            title:data?.title,
-            image:data?.image,
+            title: data?.title,
+            image: data?.image,
             agentName: data?.agent_name,
-            location:data?.location_name,
-            agentImage:data?.agent_img,
-            status:data?.status,
-            price:data?.price,
-            email:user?.email,
-            agentemail:data?.agent_email,
-            adsid:data._id,
+            location: data?.location_name,
+            agentImage: data?.agent_img,
+            status: data?.status,
+            price: data?.price,
+            email: user?.email,
+            agentemail: data?.agent_email,
+            adsid: data._id,
         }
-        axousseret.post('/cards',Cardsinfo)
-        .then(res=>{
-            console.log(res.data)
-            if(res.data.acknowledged){
-                Swal.fire({
-                    position: 'top-center',
-                    icon: 'success',
-                    title: 'Card added Successfully ',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-        
+        axousseret.post('/cards', Cardsinfo)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.acknowledged) {
+                    Swal.fire({
+                        position: 'top-center',
+                        icon: 'success',
+                        title: 'Card added Successfully ',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
-console.log(close)
+    console.log(close)
+    const hendleclose=(id)=>{
+        console.log(id)
+        setclose(id)
+   
+    }
     return (
         <div className="mt-10 ">
             <div className="relative md:flex w-full max-w-[48rem] flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
@@ -154,8 +159,9 @@ console.log(close)
                         <input type="submit" value="Submit" className="btn mt-5 btn-success" />
                     </form>
                     <div className="modal-action">
-                        <form method="dialog">
-                            <button onClick={()=>setclose(false)} className="btn">Close</button>
+                        <form method={close} onClick={()=>hendleclose('dialog')}>
+                        
+                            <button className="btn btn-primary">Close</button>
                         </form>
                     </div>
                 </div>

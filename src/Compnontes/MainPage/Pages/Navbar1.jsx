@@ -18,7 +18,7 @@ const Navbar1 = () => {
         })
 }
     return (
-        <div className="z-10" >
+        <div className=" " >
             <nav className=" shadow-2xl">
                 <div className="navbar bg-base-100  ">
                     <div className="navbar-start">

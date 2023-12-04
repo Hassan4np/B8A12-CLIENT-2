@@ -1,7 +1,7 @@
 
 import { useQuery } from "react-query";
 import Heading from "../GoolebalSecton/Heading";
-import useAuth from "../Hools/useAuth";
+
 import Bannar from "./Bannar";
 import useAxousPublic from "../Hools/useAxousPublic";
 
