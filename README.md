@@ -1,10 +1,27 @@
 
-Live Link: https://b8a12-project.web.app  </br></br>
+### Live Link: https://b8a12-project.web.app
 
+#### Server Link : https://github.com/Hassan4np/B8A12-CLIENT-2
 
-Our Project Feature:</br></br>
-1.Our company is very cheap to rate ad campaigns.</br>
-2.We are provider  all product advancements.</br>
-3.Our service 24 hour. </br>
-4.Our compony is the best in the country.</br>
-5.We are all products advancement 30% discount.
+## Projects Details
+ 
+### Projects Nmae :  Advertisement
+ ####  Projects Features : - 
+- User Buy Advertisement
+- User checkout Advertisement
+- User can agent when admin approved
+
+#### Projects  Technologies :
+- React.js
+- mongodb,
+- node.js
+- react router.
+- jwt token
+- Axios
+- TanStack query.
+- React library
+- components
+- checkout 
+- payment method stript
+- react icone
+
