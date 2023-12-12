@@ -29,6 +29,7 @@ import Solditem from "../Daseboard/AgentHome/Solditem";
 import Advertise from "../Daseboard/AdminHome/Advertise";
 import AdminPrivaterout from "../Daseboard/AdminHome/AdminPrivaterout";
 import AgentPrivaterout from "../Daseboard/AgentHome/AgentPrivaterout";
+import Contact from "../Home/Contact";
 
 
 const router = createBrowserRouter([
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
             {
                 path: "/proparis",
                 element: <Allpropaty></Allpropaty>,
+            },
+            {
+                path:'contact',
+                element:<Contact></Contact>
             }
 
 

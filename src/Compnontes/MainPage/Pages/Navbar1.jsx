@@ -7,7 +7,10 @@ const Navbar1 = () => {
     const links = <>
         <Link to="/" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>Home</li></button></Link>
         <Link to="/proparis" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>All Properties</li></button></Link>
-        <Link to="/daseboard/userhome" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>dashboard</li></button></Link>
+      {
+        user&&  <Link to="/daseboard/userhome" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>dashboard</li></button></Link>
+      }
+        <Link to="/contact" className="mr-5"><button className="btn btn-sm bg-green-300"> <li>Coutact us</li></button></Link>
      
     </>
  const userlogout = () => {

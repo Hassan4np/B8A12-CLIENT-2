@@ -9,6 +9,7 @@ import Cards from "./Cards";
 import CollactionCards from "./CollactionCards";
 import Aboutus from "./Aboutus";
 import Feedback from "./Feedback";
+import OurTeams from "./OurTeams";
 // import useAllPropotismenu from "../Hools/useAllPropotismenu";
 
 
@@ -51,6 +52,10 @@ const Home = () => {
                 <div>
                     <Heading title="REview"></Heading>
                     <Feedback></Feedback>
+                </div>
+                <div>
+                    <Heading title="our Teams" subtitle='contact our teams member socal media'></Heading>
+                    <OurTeams></OurTeams>
                 </div>
 
             </div>
